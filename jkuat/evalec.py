@@ -138,8 +138,8 @@ def radio_tings(radios):
 	radio_objects={}
 	global driver
 	for k,v in  radios.items():
-		radio_objects.[k.split('_')[0]]=lambda:= driver.find_element_by_xpath("//input[@value='%s']"%(k.split('_')[1])).click() if v ==True\
-									   else driver.find_element_by_xpath("//input[@value='%s']"%(k.split('_')[2])
+		radio_objects.[k.split('_')[0]]=lambda:= driver.find_element_by_xpath("//input[@value='"+ k.split('_')[1]+"']").click() if v ==True\
+									   else driver.find_element_by_xpath("//input[@value='"+ k.split('_')[1]+"']").click()
 
 	for key,value in radio_objects:
 		if driver.assertTrue(value.is_selected()):
