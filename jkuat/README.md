@@ -16,6 +16,7 @@ if git_installed:
   python evalec.py
   ```
 else
+
 1. Download zip from https://github.com/oginga/uni-scripts/archive/master.zip 
 
 2. Extract the files and navigate to jkuat folder
