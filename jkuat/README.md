@@ -16,4 +16,4 @@ if git_installed:
   python evalec.py
   ```
 else
-<ol><li>Download zip from https://github.com/oginga/uni-scripts/archive/master.zip </li><li>Extract the files and navigate to jkuat folder</li>  <li><ul><li>__Windows:__Double click  ```evalec.py``` </li><li>__Linux:__Open terminal from current folder and execute __python evalec.py__</li></ol></li></ol>
+<ol><li>Download zip from https://github.com/oginga/uni-scripts/archive/master.zip </li><li>Extract the files and navigate to jkuat folder</li>  <li><ul><li> __Windows:__ Double click  ```evalec.py``` </li><li> __Linux:__ Open terminal from current folder and execute __python evalec.py__ </li></ol></li></ol>
