@@ -28,7 +28,7 @@ def schemaValidator():
 
 
 def load_json():
-	data_read=open('evaluation.json').read()
+	data_read=open('course_jsons/ComputerScience3_2.js').read()
 	act_data=json.loads(data_read)
 	return act_data
 
