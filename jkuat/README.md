@@ -1,6 +1,6 @@
 ##Lecturer evaluation scripts
 
-Time friendly,boredome free evaluation,Your best friend!
+Time friendly,boredom free evaluation,Your best friend!
 
 ####Requirements
 1.python < 2.5 on linux/windows
