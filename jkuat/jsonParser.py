@@ -13,7 +13,7 @@ def schemaValidator():
 	print "\n\n\n\n"
 	#Draft3Validator.check_schema(schema)
 	
-	data_read=open('evaluation.json').read()
+	data_read=open('course_jsons/evaluation.json').read()
 	act_data=json.loads(data_read)
 	print act_data
 	units=act_data['units']
