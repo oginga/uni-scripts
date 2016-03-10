@@ -1,0 +1,163 @@
+{
+	"faculty":"SCIT",
+	"department":"Computing",
+	"units":{
+				"ICS 2307":{
+							"lecturer":"Prof Waweru",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":true,
+										"catResults_25_26":false,
+										"assignments_27_28":true,
+										"groupWork_29_30":false
+														}
+
+							},
+
+				"ICS 2306":{
+							"lecturer":"Anne Kibe",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":false,
+										"catResults_25_26":false,
+										"assignments_27_28":true,
+										"groupWork_29_30":false
+														}
+
+							},
+
+				"ICS 2308":{
+							"lecturer":"Dr Onyango Okeyo",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":true,
+										"catResults_25_26":false,
+										"assignments_27_28":true,
+										"groupWork_29_30":false
+														}
+
+							},			
+				"SMA 2305":{
+							"lecturer":" Geoffrey Onkundi Barini",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":true,
+										"catResults_25_26":false,
+										"assignments_27_28":true,
+										"groupWork_29_30":false
+									}
+
+							},
+				"ICS 2309":{
+							"lecturer":"Prof Wafula Muliaro",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":true,
+										"catResults_25_26":false,
+										"assignments_27_28":true,
+										"groupWork_29_30":true
+									}
+
+											
+							},
+				"ICS 2310":{
+							"lecturer":"Richard Mokua",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":false,
+										"catResults_25_26":false,
+										"assignments_27_28":false,
+										"groupWork_29_30":false
+									}
+											
+							},
+				"ICS 2311":{
+							"lecturer":"T. Mwalili",
+							"improvements":["N/A","None"],
+							"week":2,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":false,
+										"catResults_25_26":false,
+										"assignments_27_28":false,
+										"groupWork_29_30":false
+									}
+	
+							},
+				"ICS 2312":{
+							"lecturer":"S. Kungu",
+							"improvements":["N/A","None"],
+							"week":1,
+							"radios":{
+										"courseOutline_9_10":true,
+										"lecAttendancee_11_12":true,
+										"makeUps_13_14":true,
+										"punctuality_15_16":true,
+										"timeSpent_17_18":true,
+										"communication_19_20":true,
+										"consultation_21_22":true,
+										"catIssuing_23_24":true,
+										"catResults_25_26":false,
+										"assignments_27_28":true,
+										"groupWork_29_30":false
+														}
+
+											}
+							}
+
+
+}

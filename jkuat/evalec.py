@@ -1,10 +1,14 @@
 import argparse
 from selenium import webdriver
 from bs4 import BeautifulSoup
+from jsonParser import load_json
+import re
 username=''
 password=''
-year=None
+yos=None
 gender=''
+program=None
+programmes={"Certificate":3,"Diploma":4,"Postgraduate_Diploma":5,"Bachelors":6,"Masters":7,"Phd":8}
 driver=None
 
 
@@ -19,8 +23,6 @@ def login():
 	driver.get("http://portal.jkuat.ac.ke/")
 
 #interact with portal's login form
-#driver.find_element_by_id('login-form') 
-
 	driver.find_element_by_name('LoginForm[username]').send_keys(username)
 	driver.find_element_by_name('LoginForm[password]').send_keys(password)
 	driver.find_element_by_name('yt0').click()
@@ -32,138 +34,132 @@ def login():
 def evaluate():
 	'''evaluation tings'''
 	global driver
-	driver.find_element_by_link_text('Evaluation').click()
+	#driver.find_element_by_link_text('Evaluation').click()
 
 	soup=BeautifulSoup(driver.page_source)
 	eval_link=soup.find('a',attrs={'href':re.compile("^http://evaluation.jkuat.ac.ke/student/evaluate/start")})
-	href=lnk.get('href')
+	href=eval_link.get('href')
 	driver.find_element_by_xpath('//a[@href="'+href+'"]').click()
 
-	#course details
-	driver.find_element_by_name('unit').send_keys('unit code')
-	driver.find_element_by_name('lecture').send_keys("lecturer's name")
-	driver.find_element_by_name('lecture').submit()
-
-	#evaluation
-	#School/Faculty
-	driver.find_element_by_name('answer[1]').send_keys("Faculty")
-
-	#Department
-	driver.find_element_by_name('answer[2]').send_keys("Department")
 	
-	#Gender
-	#write an if statement to check gender 
-	gendeRadio=driver.find_element_by_xpath("//input[@value='1']").click()
-	driver.assertTrue(gendeRadio.is_selected())
+	act_data=load_json()
 
+	units=act_data['units']
 
-	#Year of study
-	driver.find_element_by_name('answer[4]').send_keys("Year of Study")
+	for unit_code,details in units.items():
 
-	#improvements to course
-	driver.find_element_by_name('answer[18]').send_keys("Week 1")
+		#course details
+		driver.find_element_by_name('unit').send_keys(unit_code)
+		driver.find_element_by_name('lecture').send_keys(units[unit_code]['lecturer'])
+		driver.find_element_by_name('lecture').submit()
 
+		#sleep
+		#School/Faculty
+		driver.find_element_by_name('answer[1]').send_keys(act_data['faculty'])
 
-	#Programme
-	
-'''
-	programmeRadio=driver.find_element_by_xpath("//input[@value='6']").click()
-	driver.assertTrue(programmeRadio.is_selected())
+		#Department
+		driver.find_element_by_name('answer[2]').send_keys(act_data['department'])
 
-	#first class week
-	driver.find_element_by_name('answer[6]').send_keys("Week 1")
+		#Gender
+		if gender:
+			driver.find_element_by_xpath("//input[@value='1']").click()
+		else:driver.find_element_by_xpath("//input[@value='2']").click()
+		#driver.assertTrue(gendeRadio.is_selected())
 
-	#course outline val 9 & 10
-	attRadio=driver.find_element_by_xpath("//input[@value='9']").click()
-	driver.assertTrue(attRadio.is_selected())
+		#Year of study
+		driver.find_element_by_name('answer[4]').send_keys(str(yos))
 
+		#improvements to course
+		driver.find_element_by_name('answer[18]').send_keys("None")
 
-	#lec attendance val 11 & 12
-	programmeRadio=driver.find_element_by_xpath("//input[@value='6']").click()
-	driver.assertTrue(programmeRadio.is_selected())
+		#first class week
+		driver.find_element_by_name('answer[6]').send_keys("Week "+str(units[unit_code]['week']))
 
-	#make ups val 13 & 14
-	muRadio=driver.find_element_by_xpath("//input[@value='13']").click()
-	driver.assertTrue(muRadio.is_selected())
+		#Programme
+		programmeRadio=driver.find_element_by_xpath("//input[@value='"+str(program)+"']").click()
 
-	#lec punctuality val 15 & 16
-	puncRadio=driver.find_element_by_xpath("//input[@value='15']").click()
-	driver.assertTrue(puncRadio.is_selected())
+		radios={}
+		week=None
+		radios=units[unit_code]['radios']
+		week=units[unit_code]['week']
+		print '\n\n\n'
+		
 
-	#time per lecture val 17 & 18
-	timeRadio=driver.find_element_by_xpath("//input[@value='17']").click()
-	driver.assertTrue(timeRadio.is_selected())
+		radio_tings(radios)
 
-	#lec communication val 19 & 20
-	commRadio=driver.find_element_by_xpath("//input[@value='19']").click()
-	driver.assertTrue(commRadio.is_selected())
+		#submit
+		driver.find_element_by_name('answer[4]').submit()
+	driver.save_screenshot('confirmation.png')
 
-	#consulation val 21 & 22
-	consRadio=driver.find_element_by_xpath("//input[@value='21']").click()
-	driver.assertTrue(consRadio.is_selected())
-
-	#CAT provision val 23 & 24
-	catRadio=driver.find_element_by_xpath("//input[@value='23']").click()
-	driver.assertTrue(catRadio.is_selected())
-
-	#CAT results val 25 & 26
-	catresRadio=driver.find_element_by_xpath("//input[@value='25']").click()
-	driver.assertTrue(catresRadio.is_selected())
-
-	#Assignment val 27 & 28
-	assgRadio=driver.find_element_by_xpath("//input[@value='27']").click()
-	driver.assertTrue(assgRadio.is_selected())
-
-	#Group Work val 29 & 20
-	gwRadio=driver.find_element_by_xpath("//input[@value='29']").click()
-	driver.assertTrue(gw.is_selected())
-'''
+		
 	
 
 def query_details():
 	global username
 	global password
-	global year
+	global yos
 	global gender
+	global program
+	raw_gender=''
 
-	username=raw_input('Enter a valid username i.e john.doe@students')
-	#match user name against a compiled regular expression
-	password=raw_input('Enter your password i.eab123-1234/2013 if password not changed')
-	confirm_pass=raw_input('Confirm password')
+	while True:
+		try:
+			username=raw_input('Enter a valid username i.e john.doe@students : \n')
+			#match user name against a compiled regular expression
+			password=raw_input('Enter your password i.eab123-1234/2013 if password not changed : \n')
+			confirm_pass=raw_input('Confirm password : \n')
+		except EOFError:
+			break
+		else:
+			if password == confirm_pass:
+				break
+			else:print 'Password MISMATCH \n Re-enter your credentials \n'
+
+	try:
+		raw_gender=raw_input('Input your GENDER.Type 1 for male or 2 for female: \n')
+		prog="Enter the digits to choose your programme: "
+		progSTr=' '.join(["%s ->%s"%(v,k) for k,v in programmes.items()])
+		progI_P=raw_input(prog+progSTr+" \n")
+		for k,v in programmes.items():
+			if v== int(progI_P):
+				program=v
+		yos=raw_input('Enter your year of study ie : \n')
+	except EOFError:
+		pass
+
+	#casting string to integer
+	g=lambda rg:True if rg == '1' else False
+	gender=g(raw_gender)
+	print gender
+	print type(gender)
+	#yos=raw_input('Enter year of study')
 	
-
 
 
 def radio_tings(radios):
 	radio_objects={}
 	global driver
 	for k,v in  radios.items():
-		radio_objects.[k.split('_')[0]]=lambda:= driver.find_element_by_xpath("//input[@value='"+ k.split('_')[1]+"']").click() if v ==True\
-									   else driver.find_element_by_xpath("//input[@value='"+ k.split('_')[1]+"']").click()
-
-	for key,value in radio_objects:
-		if driver.assertTrue(value.is_selected()):
-			pass
-
-		else: 
-			print "Radio %s not selected"%(radio_objects[key])
-			return False
-
+		if v ==True:
+			driver.find_element_by_xpath("//input[@value='"+ k.split('_')[1]+"']").click()
+		else:driver.find_element_by_xpath("//input[@value='"+ k.split('_')[2]+"']").click()
+		
 	return True	
-
 
 
 if __name__ == '__main__':
 	parser=argparse.ArgumentParser()
-	parser.add_argument(help='Enter a valid username i.e john.doe@students',dest='username')
-	parser.add_argument(help='Enter your password i.eab123-1234/2013',dest='password')
+	parser.add_argument('-u','--user',help='Enter a valid username i.e john.doe@students',dest='username')
+	parser.add_argument('-p','--passwd',help='Enter your password i.eab123-1234/2013',dest='password')
 	args=parser.parse_args()
 
 	username=args.username
 	password=args.password
+
+	query_details()
 	login()
-
-
+	evaluate()
+	#eof 1146
 
 
 

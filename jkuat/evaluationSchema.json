@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "faculty": {
+      "id": "http://jsonschema.net/faculty",
+      "type": "string"
+    },
+    "department": {
+      "id": "http://jsonschema.net/department",
+      "type": "string"
+    },
+    "units": {
+      "id": "http://jsonschema.net/units",
+      "type": "object",
+      "properties": {
+        "ICS 2306": {
+          "id": "http://jsonschema.net/units/ICS 2306",
+          "type": "object",
+          "properties": {
+            "lecturer": {
+              "id": "http://jsonschema.net/units/ICS 2306/lecturer",
+              "type": "string"
+            },
+            "improvements": {
+              "id": "http://jsonschema.net/units/ICS 2306/improvements",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http://jsonschema.net/units/ICS 2306/improvements/0",
+                  "type": "string"
+                },
+                {
+                  "id": "http://jsonschema.net/units/ICS 2306/improvements/1",
+                  "type": "string"
+                }
+              ],
+              "additionalItems": false
+            },
+            "week": {
+              "id": "http://jsonschema.net/units/ICS 2306/week",
+              "type": "integer"
+            },
+            "radios": {
+              "id": "http://jsonschema.net/units/ICS 2306/radios",
+              "type": "object",
+              "properties": {
+                "courseOutline_9_10": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/courseOutline_9_10",
+                  "type": "boolean"
+                },
+                "lecAttendancee_11_12": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/lecAttendancee_11_12",
+                  "type": "boolean"
+                },
+                "makeUps_13_14": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/makeUps_13_14",
+                  "type": "boolean"
+                },
+                "punctuality_15_16": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/punctuality_15_16",
+                  "type": "boolean"
+                },
+                "timeSpent_17_18": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/timeSpent_17_18",
+                  "type": "boolean"
+                },
+                "communication_19_20": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/communication_19_20",
+                  "type": "boolean"
+                },
+                "consultation_21_22": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/consultation_21_22",
+                  "type": "boolean"
+                },
+                "catIssuing_23_24": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/catIssuing_23_24",
+                  "type": "boolean"
+                },
+                "catResults_25_26": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/catResults_25_26",
+                  "type": "boolean"
+                },
+                "assignments_27_28": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/assignments_27_28",
+                  "type": "boolean"
+                },
+                "groupWork_29_30": {
+                  "id": "http://jsonschema.net/units/ICS 2306/radios/groupWork_29_30",
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "faculty",
+    "department",
+    "units"
+  ]
+}
