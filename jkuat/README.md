@@ -7,10 +7,16 @@ Time friendly,boredom free evaluation,Your best friend!
 1.python < 2.5 on linux/windows then use pip to install the below dependencies:
 
 ####Dependencies
-
+**Linux:**
 ```bash
   sudo pip install selenium bs4 jsonschema pyvirtualdisplay
   ```
+  
+**Windows:**
+```bash
+  pip install selenium bs4 jsonschema pyvirtualdisplay
+  ```
+  
 2.git installed/browser for zip download
 
 3.Active internet connection
