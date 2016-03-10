@@ -2,6 +2,7 @@ import argparse
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from jsonParser import load_json
+from pyvirtualdisplay import Display
 import re
 username=''
 password=''
@@ -14,7 +15,15 @@ driver=None
 
 def login():
 #create a new firefox session
+
+
+
 	global driver
+	#Headless browsing
+
+	#display=Display(visible=0,size=(800,600))
+	#display.start()
+	
 	driver=webdriver.Firefox()
 	driver.implicitly_wait(30)
 	driver.maximize_window()
