@@ -21,8 +21,8 @@ def login():
 	global driver
 	#Headless browsing
 
-	#display=Display(visible=0,size=(800,600))
-	#display.start()
+	display=Display(visible=0,size=(800,600))
+	display.start()
 	
 	driver=webdriver.Firefox()
 	driver.implicitly_wait(30)
@@ -98,6 +98,7 @@ def evaluate():
 
 		#submit
 		driver.find_element_by_name('answer[4]').submit()
+		print "\t\t%s\t\t \n\n\n"%(unit_code.upper())
 	driver.save_screenshot('confirmation.png')
 
 		
@@ -139,8 +140,7 @@ def query_details():
 	#casting string to integer
 	g=lambda rg:True if rg == '1' else False
 	gender=g(raw_gender)
-	print gender
-	print type(gender)
+	print "\t\t\t\tWAIT WHILE THE MAGIC HAPPENS!\t\t\t"
 	#yos=raw_input('Enter year of study')
 	
 
