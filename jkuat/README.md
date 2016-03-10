@@ -3,9 +3,12 @@
 Time friendly,boredom free evaluation,Your best friend!
 
 ####Requirements
+
 1.python < 2.5 on linux/windows
 
 2.git installed/browser for zip download
+
+3.Active internet connection
 
 #usage
 
@@ -24,3 +27,7 @@ else
 3. On Windows: Double click  ``` evalec.py ``` 
 
 4. On Linux: Open terminal from current folder and execute ```python evalec.py``` 
+
+###confirmation
+
+Check for the presence of ```confirmation.png``` to view your evaluation status
