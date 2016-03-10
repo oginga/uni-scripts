@@ -9,10 +9,7 @@ Time friendly,boredom free evaluation,Your best friend!
 ####Dependencies
 
 ```bash
-  pip install selenium
-  pip install bs4
-  pip install jsonschema
-  pip install pyvirtualdisplay
+  sudo pip install selenium bs4 jsonschema pyvirtualdisplay
   ```
 2.git installed/browser for zip download
 
