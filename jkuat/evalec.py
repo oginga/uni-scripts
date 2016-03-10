@@ -98,14 +98,12 @@ def evaluate():
 		week=None
 		radios=units[unit_code]['radios']
 		week=units[unit_code]['week']
-		print '\n\n\n'
-		
 
 		radio_tings(radios)
 
 		#submit
 		driver.find_element_by_name('answer[4]').submit()
-		print CYAN+"\t\t%s\t\t \n\n\n"%(unit_code.upper())+RESET
+		print CYAN+"\t\t%s\t"%(unit_code.upper())+"evaluated successfully \n"+RESET
 	driver.save_screenshot('confirmation.png')
 
 		
