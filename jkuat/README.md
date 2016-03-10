@@ -2,10 +2,18 @@
 
 Time friendly,boredom free evaluation,Your best friend!
 
-####Requirements
+##Requirements
 
-1.python < 2.5 on linux/windows
+1.python < 2.5 on linux/windows then use pip to install the below dependencies:
 
+####Dependencies
+
+```bash
+  pip install selenium
+  pip install bs4
+  pip install jsonschema
+  pip install pyvirtualdisplay
+  ```
 2.git installed/browser for zip download
 
 3.Active internet connection
