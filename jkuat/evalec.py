@@ -177,12 +177,12 @@ if __name__ == '__main__':
 
 	if username and password:
 		print "if true"
-		#login()
-		#evaluate()
+		login()
+		evaluate()
 	else:
 		query_details()
-		#login()
-		#evaluate()
+		login()
+		evaluate()
 	#eof 1146
 
 
