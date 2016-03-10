@@ -3,7 +3,14 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 from jsonParser import load_json
 from pyvirtualdisplay import Display
+import colorama
 import re
+
+CYAN=colorama.Fore.CYAN
+RESET=colorama.Style.RESET_ALL
+WARN=colorama.Fore.RED
+GREEN=colorama.Fore.GREEN
+MAGENTA=colorama.Fore.MAGENTA
 username=''
 password=''
 yos=None
@@ -98,7 +105,7 @@ def evaluate():
 
 		#submit
 		driver.find_element_by_name('answer[4]').submit()
-		print "\t\t%s\t\t \n\n\n"%(unit_code.upper())
+		print CYAN+"\t\t%s\t\t \n\n\n"%(unit_code.upper())+RESET
 	driver.save_screenshot('confirmation.png')
 
 		
@@ -114,33 +121,36 @@ def query_details():
 
 	while True:
 		try:
-			username=raw_input('Enter a valid username i.e john.doe@students : \n')
+			username=raw_input(CYAN+'Enter a valid username i.e john.doe@students :'+RESET+'\n')
 			#match user name against a compiled regular expression
-			password=raw_input('Enter your password i.eab123-1234/2013 if password not changed : \n')
-			confirm_pass=raw_input('Confirm password : \n')
+			password=raw_input(CYAN+'Enter your password i.eab123-1234/2013 if password not changed : '+RESET+'\n')
+			confirm_pass=raw_input(CYAN+'Confirm password : '+RESET+'\n')
 		except EOFError:
 			break
 		else:
 			if password == confirm_pass:
 				break
-			else:print 'Password MISMATCH \n Re-enter your credentials \n'
+			else:print WARN+'\t\t\tPassword MISMATCH \n Re-enter your credentials '+RESET+'\n'
 
 	try:
-		raw_gender=raw_input('Input your GENDER.Type 1 for male or 2 for female: \n')
-		prog="Enter the digits to choose your programme: "
-		progSTr=' '.join(["%s ->%s"%(v,k) for k,v in programmes.items()])
-		progI_P=raw_input(prog+progSTr+" \n")
+		raw_gender=raw_input(CYAN+'Input your GENDER.Type 1 for male or 2 for female:'+RESET+'\n')
+		prog="Enter the digit(from above) for your programme: "
+		print MAGENTA+'\t\t\tPROGRAMMES\t\t\t'+RESET
+		for k,v in programmes.items():
+			print GREEN+'%s -> %s'%(v,k)+RESET+'\n'
+		#progSTr=' '.join(["%s ->%s"%(v,k) for k,v in programmes.items()])
+		progI_P=raw_input(CYAN+prog+RESET+" \n")
 		for k,v in programmes.items():
 			if v== int(progI_P):
 				program=v
-		yos=raw_input('Enter your year of study ie : \n')
+		yos=raw_input(CYAN+'Enter your year of study ie :'+RESET+'\n')
 	except EOFError:
 		pass
 
 	#casting string to integer
 	g=lambda rg:True if rg == '1' else False
 	gender=g(raw_gender)
-	print "\t\t\t\tWAIT WHILE THE MAGIC HAPPENS!\t\t\t"
+	print MAGENTA+"\t\t\tLOADING...................\t\t\t"+RESET
 	#yos=raw_input('Enter year of study')
 	
 
@@ -165,9 +175,14 @@ if __name__ == '__main__':
 	username=args.username
 	password=args.password
 
-	query_details()
-	login()
-	evaluate()
+	if username and password:
+		print "if true"
+		#login()
+		#evaluate()
+	else:
+		query_details()
+		#login()
+		#evaluate()
 	#eof 1146
 
 

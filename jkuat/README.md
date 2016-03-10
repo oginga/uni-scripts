@@ -9,7 +9,7 @@ Time friendly,boredom free evaluation,Your best friend!
 ####Dependencies
 **Linux:**
 ```bash
-  sudo pip install selenium bs4 jsonschema pyvirtualdisplay
+  sudo pip install selenium bs4 jsonschema pyvirtualdisplay colorama
   ```
   
 **Windows:**
