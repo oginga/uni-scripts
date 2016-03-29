@@ -9,12 +9,7 @@ Time friendly,boredom free evaluation,Your best friend!
 ####Dependencies
 **Linux:**
 ```bash
-  sudo pip install selenium bs4 jsonschema pyvirtualdisplay colorama
-  ```
-  
-**Windows:**
-```bash
-  pip install selenium bs4 jsonschema pyvirtualdisplay
+  sudo pip install selenium bs4 jsonschema colorama
   ```
   
 2.git installed/browser for zip download
@@ -35,9 +30,7 @@ else
 
 2. Extract the files and navigate to jkuat folder
 
-3. On Windows: Double click  ``` evalec.py ``` 
-
-4. On Linux: Open terminal from current folder and execute ```python evalec.py``` 
+3. On Linux: Open terminal from current folder and execute ```python evalec.py``` 
 
 ###confirmation
 
