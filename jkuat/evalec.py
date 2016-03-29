@@ -2,7 +2,7 @@ import argparse
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from jsonParser import load_json
-from pyvirtualdisplay import Display
+#from pyvirtualdisplay import Display
 import colorama
 import re
 
@@ -70,6 +70,7 @@ def evaluate():
 		driver.find_element_by_name('lecture').submit()
 
 		#sleep
+		driver.implicitly_wait(3)	
 		#School/Faculty
 		driver.find_element_by_name('answer[1]').send_keys(act_data['faculty'])
 
@@ -104,7 +105,10 @@ def evaluate():
 		#submit
 		driver.find_element_by_name('answer[4]').submit()
 		print CYAN+"\t\t%s\t"%(unit_code.upper())+"evaluated successfully \n"+RESET
-	driver.save_screenshot('confirmation.png')
+		driver.implicitly_wait(5)
+	if driver.save_screenshot('confirmation.png'):
+		print MAGENTA+"Check for a screenshot of youe evaluation status in the current dir"+RESET
+	driver..close()
 
 		
 	
@@ -149,9 +153,7 @@ def query_details():
 	g=lambda rg:True if rg == '1' else False
 	gender=g(raw_gender)
 	print MAGENTA+"\t\t\tLOADING...................\t\t\t"+RESET
-	#yos=raw_input('Enter year of study')
 	
-
 
 def radio_tings(radios):
 	radio_objects={}
@@ -174,14 +176,15 @@ if __name__ == '__main__':
 	password=args.password
 
 	if username and password:
-		print "if true"
-		login()
-		evaluate()
+		#print "if true"
+		#login()
+		#evaluate()
+		pass
 	else:
 		query_details()
 		login()
 		evaluate()
-	#eof 1146
+	#eof 1146      0722 995818 --nick
 
 
 
