@@ -184,7 +184,7 @@ if __name__ == '__main__':
 		query_details()
 		login()
 		evaluate()
-	#eof 1146      0722 995818 --nick
+	
 
 
 
